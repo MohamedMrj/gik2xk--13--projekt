@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "create-react-app": "^5.0.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "knex": "^2.4.2",
+    "morgan": "~1.9.1",
+    "sequelize": "6.11",
+    "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.4"
+  }
+}
