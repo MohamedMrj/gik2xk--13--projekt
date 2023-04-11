@@ -33,7 +33,7 @@ function BigProduct(props) {
         <Image
           src={
             product.imageUrl ||
-            'https://image.spreadshirtmedia.net/image-server/v1/compositions/T812A2PA5886PT17X48Y77D155266323W24996H9381/views/1,width=550,height=550,appearanceId=2,backgroundColor=000000,noPt=true/meh-ascii-art-internet-emoticon-emoji-mens-premium-t-shirt.jpg'
+            'https://media.istockphoto.com/id/1271880340/sv/vektor/radvektorikonen-f%C3%B6rlorade-objekt-oidentifierade-objekt-kontur-isolerade-ikonen.jpg?s=612x612&w=0&k=20&c=GSYC11NZj79jd6TXzVK9EdURagWRS3xlgpaQobpDmRQ='
           }
             sx={{ maxHeight: '500px'}}
         />

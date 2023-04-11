@@ -10,7 +10,7 @@ function CartItem({product}) {
           sx={{maxWidth: '150px', height: '175px', objectFit: 'cover'}}
           image={
             product.imageUrl ||
-            'https://images.pexels.com/photos/4271933/pexels-photo-4271933.jpeg?auto=compress&cs=tinysrgb&w=1600'
+            'https://thumbs.dreamstime.com/b/error-rubber-stamp-word-error-inside-illustration-109026446.jpg'
           }
           alt={`Bild till ${product.title}`}
         />
