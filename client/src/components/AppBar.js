@@ -11,7 +11,6 @@ import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import MoreIcon from '@mui/icons-material/MoreVert';
 
 
 const Search = styled('div')(({theme}) => ({
@@ -74,14 +73,6 @@ function SearchAppBar() {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-
-
-
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -167,28 +158,6 @@ function SearchAppBar() {
                 <ShoppingCartIcon style={{fill: '#FFFFFF'}} />
               </IconButton>
             </Link>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit">
-              <AccountCircle />
-            </IconButton>
-          </Box>
-
-          <Box sx={{display: {xs: 'flex', md: 'none'}}}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit">
-              <MoreIcon />
-            </IconButton>
           </Box>
         </Toolbar>
       </AppBar>

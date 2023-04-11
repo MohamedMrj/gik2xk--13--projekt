@@ -43,7 +43,7 @@ function CreateProduct() {
       />
       <TextField
         size="small"
-        label="Description"
+        label="Beskrivning"
         variant="standard"
         multiline
         minRows={4}
@@ -53,7 +53,7 @@ function CreateProduct() {
       />
       <TextField
         size="small"
-        label="Image URL"
+        label="Bild URL"
         variant="standard"
         multiline
         onChange={(event) => setImageUrl(event.target.value)}
@@ -62,7 +62,7 @@ function CreateProduct() {
       />
       <TextField
         size="small"
-        label="Price"
+        label="Pris"
         variant="standard"
         multiline
         onChange={(event) => setPrice(event.target.value)}

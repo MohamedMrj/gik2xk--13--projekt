@@ -1,6 +1,7 @@
 const {createResponseSuccess, createResponseError, createResponseMessage} = require('../helpers/responseHelper');
 const db = require('../models');
 
+
 async function addRating(id, rating) {
   if (!id) {
     return createResponseError(422, 'Id is required');
@@ -70,6 +71,34 @@ async function getProductById(id) {
   }
 }
 
+async function addToCart(user_id, product_id, quantity) {
+  try {
+
+    const cart = await _findOrCreateCart(user_id);
+
+    const product = await db.product.findByPk(product_id);
+
+    let cartRow = await db.cartRow.findOne({
+      where: {
+        cartId: cart.id,
+        productId: product.id,
+      },
+    });
+    if (cartRow) {
+      return createResponseError(422, 'Product already in cart');
+    } else {
+      cartRow = await db.cartRow.create({
+        quantity,
+        productId: product.id,
+        cartId: cart.id,
+      });
+    }
+
+    return createResponseSuccess(cartRow);
+  } catch (error) {
+    return createResponseError(error.status, error.message);
+  }
+}
 
 async function _findOrCreateCart(user_id) {
   try {
@@ -104,34 +133,6 @@ async function getRatingById(id) {
     return createResponseSuccess(rating);
   } catch (error) {
     return createResponseError(error.status, error.message);
-  }
-}
-
-async function addToCart(userId, productId, quantity) {
-  const cart = await db.cart.findOne({
-    where: { userId },
-    include: [{
-      model: db.product,
-      where: { id: productId },
-    }],
-  });
-
-  if (cart && cart.products.length > 0) {
-    // User already has the product in their cart
-    const cartRow = cart.products[0].cartRow;
-    cartRow.quantity += quantity;
-    await cartRow.save();
-    return { status: 200, data: cart };
-  } else {
-    // User does not have the product in their cart
-    const product = await db.product.findByPk(productId);
-    if (!product) {
-      return { status: 404, data: 'Product not found' };
-    }
-    const newCartRow = await db.cartRow.create({ quantity });
-    await newCartRow.setCart(cart);
-    await newCartRow.setProduct(product);
-    return { status: 200, data: cart };
   }
 }
 
